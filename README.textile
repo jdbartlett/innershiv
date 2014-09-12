@@ -6,6 +6,16 @@ h1. STOP! You don't need this!
 
 **innerShiv is happily retired! Please do not disturb its peaceful slumber!**
 
+h1. Change of ownership
+
+Additional to the above message: I recently changed my GitHub handle from @jdbartlett to @redoPop and created this account and fork to make sure I don't break any prior references to my code. The canonical version of this repository is now:
+
+http://github.com/redoPop/innershiv
+
+Should the need arise to reopen this project (heaven forbid!) it will be that version I reopen, and not this fork.
+
+Thanks.
+
 h1. HTML5 innerShiv
 
 Even with HTML5shim, this section won't be styled in IE < 9:
