@@ -1,65 +1,51 @@
-<!doctype html public "♥">
-<!--[if lt IE 8 ]><html lang="en" class="oldie"><![endif]-->
-<!--[if (gt IE 7)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset=utf-8 />
-	<title>innerShiv makes HTML5shim work on innerHTML &amp; jQuery</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	
-	<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet" type="text/css">
-	<link href="style.css" rel="stylesheet" type="text/css">
+	<meta charset="utf-8" />
+	<title>innerShiv</title>
+
+	<meta http-equiv="refresh" content="0; url=http://redopop.com/innershiv/" />
+	<link rel="canonical" href="http://redopop.com/innershiv/" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		body, html {
+			-webkit-font-smoothing: antialiased;
+
+			background: #050505;
+			overflow: hidden;
+
+			margin: 0;
+			padding: 0;
+
+			height: 100%;
+			width: 100%;
+		}
+
+		.link {
+			color: white;
+			font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+			font-size: 1.4rem;
+			font-weight: 100;
+			letter-spacing: 0.06ex;
+			line-height: 1.4;
+			text-align: center;
+			text-decoration: none;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			height: 100%;
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
-	<section class="stop">
-		<div class="inner">
-			<h2><em>STOP!</em> Don't use innerShiv!</h2>
-			<p>html5shiv now patches for the innerHTML issue! Update html5shiv and you won't have to use innerShiv anymore: </p><p><a href="http://code.google.com/p/html5shiv/">http://html5shiv.googlecode.com/</a></p>
-		</div>
-	</section>
-	
-	<section class="leadin">
-		<div class="boo">
-			<p>Even with HTML5shim, IE &lt; 9 won't style this:</p>
-			<pre>var <span class="var">html</span> = <span class="string">"&lt;section&gt;Baw :(&lt;/section&gt;"</span>;<br />$(<span class="string">"#el"</span>).append(<span class="var">html</span>);</pre>
-		</div>
-		
-		<div class="yay">
-			<p>...unless you use innerShiv:</p>
-			<pre>var <span class="var">html</span> = <span class="string">"&lt;section&gt;Yay! :)&lt;/section&gt;"</span>;<br />$(<span class="string">"#el"</span>).append(<span class="is">innerShiv(</span><span class="var">html</span><span class="is">)</span>);</pre>
-		</div>
-	</section>
-	
-	<h1><strong>innerShiv</strong> makes <em>HTML5shim</em> work<br/>on <em>innerHTML</em> &amp; <em>jQuery</em></h1>
-	
-	<section class="download">
-		<a href="innershiv.js">
-			<strong>Get innerShiv</strong>
-			<span>(~1k .js)</span>
-		</a>
-	</section>
-	
-	<section>
-		<h2>What the hell is innerShiv?</h2>
-		<p><a href="http://paulirish.com/2011/the-history-of-the-html5-shiv/">The HTML5 shi(m|v)</a> fixes styling HTML5 elements in old IE, but things break again when an unappended element's content is set by innerHTML, like so:</p>
-		<pre>var <span class="var">s</span> = <span class="var">document</span>.createElement(<span class="string">"div"</span>);<br><span class="var">s</span>.<span class="var">innerHTML</span> = <span class="string">"&lt;section&gt;Sad section cannot be styled. :(&lt;/section&gt;"</span>;<br><span class="var">document</span>.<span class="var">body</span>.appendChild(<span class="var">s</span>);</pre>
-		<p>To fix this, pass your HTML5 through innerShiv and append the returned document fragment, instead of using innerHTML directly:</p>
-		<pre>var <span class="var">s</span> = <span class="var">document</span>.createElement(<span class="string">"div"</span>);<br><span class="var">s</span>.appendChild(<span class="is">innerShiv(</span><span class="string">"&lt;section&gt;Happy section loves CSS. (:&lt;/section&gt;"</span><span class="is">)</span>);<br><span class="var">document</span>.<span class="var">body</span>.appendChild(<span class="var">s</span>);</pre>
-	</section>
-	
-	<section>
-		<h2>Can I use this with jQuery?</h2>
-		<p>Yes, but pass boolean false as a second parameter.</p>
-		<p>By default, innerShiv returns a document fragment, which can mess up jQuery in some situations. To have innerShiv return a jQuery-friendly array of elements, pass boolean false as a second parameter:</p>
-		<pre>$(<span class="string">"#el"</span>).append(innerShiv(<span class="string">"&lt;section&gt;Hi.&lt;/section&gt;"</span>, <span class="is">false</span>));</pre>
-	</section>
-	
-	<footer>
-		<p>&#9829; me: <a href="http://twitter.com/jdbartlett" rel="me">@jdbartlett</a> | <a href="mailto:xo@jdbartlett.com">xo@jdbartlett.com</a> &amp; <a href="http://twitter.com/?status=Stab%20IE%20in%20the%20DOM%20with%20innerShiv:%20http%3A//bit.ly/ishiv%20-%20makes%20HTML5shim%20work%20on%20innerHTML%20%26%20jQuery">tell your friends</a></p>
-	</footer>
-	
-	<a href="http://github.com/jdbartlett/innershiv"><img class="fork" src="https://assets0.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf?repo=&amp;url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+	<a class="link" href="http://redopop.com/innershiv/">
+		this site has moved to:<br>
+		redopop.com/innershiv<br>
+		&#9829;
+	</a>
 </body>
 </html>
